@@ -42,7 +42,6 @@ time.sleep(5)
 try:
     for i in range(1,15):
         name = driver.find_element(By.XPATH, '/html/body/div/div/div[2]/div/section/div/div/div['+str(i)+']/div/div/div/div[1]/a/span/span[1]')
-        # /html/body/div/div/div[2]/div/section/div/div/div[2]/div/div/div/div[1]/a/span/span[1]
         start = driver.find_element(By.XPATH,'/html/body/div/div/div[2]/div/section/div/div/div['+str(i)+']/div/div/div/div[2]/div[1]/span[2]')
         end = driver.find_element(By.XPATH,'/html/body/div/div/div[2]/div/section/div/div/div['+str(i)+']/div/div/div/div[2]/div[2]/span[2]')
         start = start.get_attribute('innerHTML')
@@ -65,10 +64,6 @@ try:
 except:
     print("Devfolio scraped")
 
-# //*[@id="root"]/div/div[2]/div/section/div/div/div[9]/div/div/div/div[3]/button
-# //*[@id="root"]/div/div[2]/div/section/div/div/div[8]/div/div/div/div[3]/button
-# for i in hackathons:
-#     print(i.name+" "+i.url+" "+i.start_date+"-"+i.end_date+" "+i.location+" "+i.mode)
 names = [i.name for i in hackathons]
 print(hackathons)
 check_hackathon(names)

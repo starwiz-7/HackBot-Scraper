@@ -61,8 +61,6 @@ try:
         image = driver.find_element(By.XPATH, '/html/body/div[1]/div[3]/div[1]/div['+str(l)+']/div/a/div/div[3]/img')
         image = image.get_attribute('src')
         hack = MLH(name,start,end,location,mode,image,url)
-        # print(hack.name)
-        # check_hackathon(hack)
         hackathons.append(hack)
 except Exception as e:
     print(e)

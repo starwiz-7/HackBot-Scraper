@@ -9,7 +9,6 @@ PATH = "C:\Program Files (x86)\chromedriver.exe"
 driver = webdriver.Chrome(PATH)
 
 driver.get("https://devpost.com/hackathons")
-# hackathons = []
 website = "DEVPOST"
 hacks = get_hackathons(website)
 hacks_db= [i['name'] for i in hacks]
@@ -47,7 +46,6 @@ while True:
         time.sleep(1)
         load_button.click()
         
-        # /html/body/section/div/div/div/div[1]/div[1]/div[2]/div/article/a/div[1]/section/div/h2
     except:
         print("scroll finished")
         break
@@ -61,9 +59,8 @@ try:
             name = name.get_attribute('innerHTML')
             name = name.strip()
             print(name,end="")
-            location = driver.find_element(By.XPATH, '/html/body/section/div/div/div/div[1]/div[1]/div['+str(i)+']/div/article/a/div[1]/section/div/p[1]')
-            location = location.get_attribute('innerHTML')
-            # location = location.strip()
+            location = driver.find_element(By.XPATH, '/html/body/section/div/div/div/div[1]/div[1]/div['+str(i)+']/div/article/a/div[1]/section/div/p[1]').text
+            location = location.strip()
             print(location)
             url = driver.find_element(By.XPATH, '/html/body/section/div/div/div/div[1]/div[1]/div['+str(i)+']/div/article/a')
             url = url.get_attribute('href')
@@ -72,8 +69,6 @@ try:
             image = image.get_attribute('src')
             print(image)
             mode = "Digital"
-            # if(location != 'Online'):
-                # mode = "Physical"
             hack = Devpost(name,'-','-',location,mode,url,image)
             hackathons.append(hack)
 except Exception:
