@@ -1,8 +1,6 @@
 from pymongo import MongoClient
 
-client = MongoClient(
-    "mongodb+srv://Admin:HackBotAdmin@hackbot.g1uz8.mongodb.net/Hackathons?retryWrites=true&w=majority"
-)
+client = MongoClient(MONGO_URI)
 
 bot = client.get_database("HackBot")
 hackathons = bot.get_collection("Hackathons")
