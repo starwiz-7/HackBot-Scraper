@@ -4,8 +4,15 @@ import time
 import sys
 sys.path.append("..")
 from Scraper.db import get_hackathons, save_hackathons, delete_hackathons
-PATH = "C:\Program Files (x86)\chromedriver.exe"
-driver = webdriver.Chrome(PATH)
+GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.binary_location = GOOGLE_CHROME_PATH
+# PATH = "C:\Program Files (x86)\chromedriver.exe"
+driver = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+
 
 driver.get("https://mlh.io")
 website = "MLH"
