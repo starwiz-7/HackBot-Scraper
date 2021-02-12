@@ -74,7 +74,7 @@ try:
         else:
             mode = "Physical"
 
-        hack = HackClub(name,start,end,location,mode,image,url)
+        hack = HackClub(name,start,end,location,mode,url,image)
         print(hack.name)
         hackathons.append(hack)
         l+=1
